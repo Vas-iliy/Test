@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c55d1b6c-4f8d-45ed-990a-8189fa2b3329" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Getter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OOP2.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP1_constructor.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP1_constructor.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +35,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Practic" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -67,7 +68,7 @@
       <option name="presentableId" value="Default" />
       <updated>1588703517068</updated>
       <workItem from="1588703518319" duration="38993000" />
-      <workItem from="1588796501855" duration="11959000" />
+      <workItem from="1588796501855" duration="18573000" />
     </task>
     <servers />
   </component>
