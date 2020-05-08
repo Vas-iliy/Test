@@ -3,14 +3,15 @@ $conection =  new PDO('mysql:host=localhost; dbname=practice_bd;
 charset=utf8', 'root', 'root');
 
 $aboutData = $conection->query("SELECT * FROM about");
-$aboutData = $aboutData->fetch();
+$aboutData = $aboutData->fetch(); //fresh когда настандартный массив
 $educationData = $conection->query("SELECT * FROM edukation");
 $lengData = $conection->query("SELECT * FROM languages ");
-//$intData = $data['interes'];
-//$aboutCareer = $data['aboutCareer'];
-//$career = $data['career'];
-//$project = $data['project'];
-//$skills = $data['skills'];
+$intData = $conection->query("SELECT * FROM interes ");
+$aboutCareer = $conection->query("SELECT * FROM aboutcareer ");
+$aboutCareer = $aboutCareer->fetch();
+$career = $conection->query("SELECT * FROM career ");
+$project = $conection->query("SELECT * FROM project ");
+$skills = $conection->query("SELECT * FROM skills ");
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
@@ -81,7 +82,7 @@ $lengData = $conection->query("SELECT * FROM languages ");
                 <h2 class="container-block-title">Interests</h2>
                 <ul class="list-unstyled interests-list">
                     <? foreach ($intData as $int) {?>
-                    <li><?=$int?></li>
+                    <li><?=$int['interes']?></li>
                     <? }?>
                 </ul>
             </div><!--//interests-->
@@ -93,7 +94,7 @@ $lengData = $conection->query("SELECT * FROM languages ");
             <section class="section summary-section">
                 <h2 class="section-title"><i class="fa fa-user"></i>Career Profile</h2>
                 <div class="summary">
-                    <p><?=$aboutCareer?>.</p>
+                    <p><?=$aboutCareer['text']?>.</p>
                 </div><!--//summary-->
             </section><!--//section-->
             
@@ -118,25 +119,13 @@ $lengData = $conection->query("SELECT * FROM languages ");
             <section class="section projects-section">
                 <h2 class="section-title"><i class="fa fa-archive"></i>Projects</h2>
                 <div class="intro">
-                    <p><?=$project['description']?></p>
+                    <p>Текст про свой проект...</p>
                 </div><!--//intro-->
+                    <? foreach ($project as $project) {?>
                 <div class="item">
-                    <span class="project-title"><a href="#hook"><?=$project['project1']?></a></span> - <span class="project-tagline"><?=$project['text1']?></span>
-                    
+                    <span class="project-title"><a href="#hook"><?=$project['project']?></a></span> - <span class="project-tagline"><?=$project['text']?></span>
                 </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-web-development-agencies-devstudio/" target="_blank"><?=$project['project2']?></a></span> -
-                    <span class="project-tagline"><?=$project['text2']?> </span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-startups-tempo/" target="_blank"><?=$project['project3']?></a></span> - <span class="project-tagline"><?=$project['text3']?></span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="hhttp://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-mobile-apps-atom/" target="_blank"><?=$project['project4']?></a></span> - <span class="project-tagline"><?=$project['text4']?> </span>
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="http://themes.3rdwavemedia.com/website-templates/responsive-bootstrap-theme-for-mobile-apps-delta/" target="_blank"><?=$project['project5']?></a></span> - <span class="project-tagline"><?=$project['text5']?></span>
-                </div><!--//item-->
+                    <? }?>
             </section><!--//section-->
             
             <section class="skills-section section">
@@ -154,6 +143,7 @@ $lengData = $conection->query("SELECT * FROM languages ");
                 </div>  
             </section><!--//skills-section-->
 
+        <!--    создание пост запроса, чтобы можно было писать коментарий-->
             <form action="" method="post">
                 <input type="text" name="comment" required>
                 <input type="submit">
